@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.UserDao">
+
+	<!-- 登陆验证 -->
+	<select id="userLogin" resultType="user" parameterType="user">
+		select * from user where userName=#{userName} and userPass = #{userPass}
+	</select>
+	<!-- 注册 -->
+	<insert id="userRegist" parameterType="user" useGeneratedKeys="true" keyProperty="userId">
+		insert into user values(#{userId},#{userName},#{userPass},#{userTruename},#{userAddress},#{userSex},#{userPhone})
+	</insert>
+	<!-- 查询所有花 -->
+	<select id="getAll" resultMap="ALLFLO">
+		select * from flowers;
+	</select>
+	<resultMap type="flower" id="ALLFLO">
+    	<id column="Flo_id" property="Flo_id"/>
+    	<result column="Flo_name" property="Flo_name"/>
+    	<result column="Flo_color" property="Flo_color"/>
+    	<result column="Flo_sort" property="Flo_sort"/>
+    	<result column="Flo_meaning" property="Flo_meaning"/>
+    	<result column="Flo_place" property="Flo_place"/>
+    	<result column="unit_price" property="unit_price"/>
+    </resultMap>
+    
+    <!-- 分类查询 -->
+    <select id="search" resultMap="ALLFLO">
+		select * from flowers
+		<where>
+			<if test="fw eq 'Flo_name'">
+				and Flo_name like concat("%",#{key},"%")
+			</if>
+			<if test="fw eq 'Flo_color'">
+				and Flo_color like concat("%",#{key},"%")
+			</if>
+			<if test="fw eq 'Flo_sort'">
+				and Flo_sort like concat("%",#{key},"%")
+			</if>
+		</where>
+	</select>
+	<!-- 按ID查询 -->
+	<select id="findById" resultType="flower">
+		select * from flowers where Flo_id = #{id}
+	</select>
+</mapper>

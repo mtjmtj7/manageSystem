@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.OrderDao">
+	<!-- 添加一条订单 -->
+	<insert id="add" parameterType="order" useGeneratedKeys="true" keyProperty="orderId">
+		insert into flower_order values(#{orderId},#{userName},#{Flo_name},#{quantity},#{unit_price},#{total_price},#{userAddress},#{userPhone})
+	</insert>
+	<!-- ID查找 -->
+	<select id="findByName" resultType="order">
+		select * from flower_order where userName = #{name}
+	</select>
+</mapper>
