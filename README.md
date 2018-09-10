@@ -1,2 +1,0 @@
-# manageSystem
-SSM manage system
