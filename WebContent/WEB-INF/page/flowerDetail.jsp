@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>修改信息</title>
+<title>修改花卉信息</title>
 <link rel="stylesheet" href="<%=path %>/css/bootstrap.min.css">
 <style type="text/css">
 body {
@@ -56,19 +56,21 @@ body {
 </head>
 <body>
 <div class="container">
-      <form:form class="form-signin" action="update" method="post" modelAttribute="user">
-        <h2 class="form-signin-heading">修改信息</h2>
-        <form:hidden path="userId"/>
-         账号：<form:input path="userName" class="form-control" placeholder="账号"/>
+      <form:form class="form-signin" action="updateFlower" method="post" modelAttribute="fw">
+        <h2 class="form-signin-heading">修改花卉信息</h2>
+        <input type="hidden" name="Flo_id" value="${fw.getFlo_id()}">
+          名字：<form:input path="Flo_name" class="form-control" placeholder="名字"/>
       	<br>
-   	密码：<form:input path="userPass" class="form-control" placeholder="密码"/>
+   	颜色：<form:input path="Flo_color" class="form-control" placeholder="颜色"/>
 		<br>
-    真实姓名：    <form:input path="userTruename" class="form-control" placeholder="真实姓名"/>
+          分类：<form:input path="Flo_sort" class="form-control" placeholder="分类"/>
 		<br>
-    地址：    <form:input path="userAddress" class="form-control" placeholder="地址"/>
+          寓意：<form:textarea path="Flo_meaning" class="form-control" placeholder="寓意"/>
 		<br>
 		<br>
-     手机号：   <form:input path="userPhone" class="form-control" placeholder="手机号"/>
+          产地：<form:input path="Flo_place" class="form-control" placeholder="产地"/>
+		<br>
+         单价：<form:input path="unit_price" class="form-control" placeholder="单价"/>
 		<br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
         <br>

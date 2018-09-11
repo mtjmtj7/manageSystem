@@ -13,7 +13,41 @@
 	<select id="getAll" resultType="user">
 	select * from user
 	</select>
+	
 	<select id="findById" resultType="user">
 		select * from user where userId = #{id}
 	</select>
+	
+	<update id="update" parameterType="user">
+		update user set
+			userName = #{userName},
+			userPass = #{userPass},
+			userTruename = #{userTruename},
+			userAddress = #{userAddress},
+			userPhone = #{userPhone}
+		where userId = #{userId}
+	</update>
+	
+	<delete id="delete">
+		delete from user where userId = #{id}
+	</delete>
+	
+	<update id="updateFlower" parameterType="flower">
+		update flowers set
+			Flo_name = #{Flo_name},
+			Flo_color = #{Flo_color},
+			Flo_sort = #{Flo_sort},
+			Flo_meaning = #{Flo_meaning},
+			Flo_place = #{Flo_place},
+			unit_price = #{unit_price}
+		where Flo_id = #{Flo_id}
+	</update>
+	
+	<insert id="addOneFlower" parameterType="flower" useGeneratedKeys="true" keyProperty="Flo_id">
+	insert into flowers values(#{Flo_id},#{Flo_name},#{Flo_color},#{Flo_sort},#{Flo_meaning},#{Flo_place},#{unit_price})
+	</insert>
+	
+	<delete id="deleteFlower">
+		delete from flowers where Flo_id = #{id}
+	</delete>
 </mapper>

@@ -40,6 +40,12 @@
 			<if test="fw eq 'Flo_sort'">
 				and Flo_sort like concat("%",#{key},"%")
 			</if>
+			<if test="fw eq 'Flo_meaning'">
+				and Flo_meaning like concat("%",#{key},"%")
+			</if>
+			<if test="fw eq 'Flo_place'">
+				and Flo_place like concat("%",#{key},"%")
+			</if>
 		</where>
 	</select>
 	<!-- 按ID查询 -->

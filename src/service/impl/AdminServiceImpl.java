@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dao.AdminDao;
 import bean.Admin;
+import bean.Flower;
 import bean.User;
 import service.AdminService;
 
@@ -29,6 +30,26 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public User findById(int id) {
 		return ad.findById(id);
+	}
+	@Override
+	public int update(User user) {
+		return ad.update(user);
+	}
+	@Override
+	public int delete(int id) {
+		return ad.delete(id);
+	}
+	@Override
+	public int updateFlower(Flower fw) {
+		return ad.updateFlower(fw);
+	}
+	@Override
+	public int addOneFlower(Flower fw) {
+		return ad.addOneFlower(fw);
+	}
+	@Override
+	public int deleteFlower(int id) {
+		return ad.deleteFlower(id);
 	}
 
 }

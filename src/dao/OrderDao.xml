@@ -12,4 +12,7 @@
 	<select id="findByName" resultType="order">
 		select * from flower_order where userName = #{name}
 	</select>
+	<select id="getAll" resultType="order">
+		select * from flower_order
+	</select>
 </mapper>

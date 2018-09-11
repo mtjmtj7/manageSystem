@@ -10,4 +10,5 @@ public interface OrderDao {
 	public int add(Order order);
 	//ID≤È’“
 	public List<Order> findByName(String name);
+	public List<Order> getAll();
 }

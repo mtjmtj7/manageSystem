@@ -17,12 +17,13 @@
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-md-7"></div>
-			<div class="col-md-5" style="text-align: right;">欢迎,<a>${admin_now.getAdminName() }</a></div>
+			<div class="col-md-5" style="text-align: right;"><a href="<%=path%>/orderManage">订单管理</a>||<a href="<%=path%>/flowerManage">花卉管理</a>||欢迎,<a>${admin_now.getAdminName() }</a></div>
 		</div>
-		<div class="panel panel-default">
+		<div class="panel panel-default clearfix">
 		  <!-- Default panel contents -->
 		  <div class="panel-heading">
 		  	<h4>管理员</h4><br>
+		  	用户管理
 		  	</div>
 			<div class="panel-body">
 				<table class="table">	
@@ -41,10 +42,13 @@
 					    	<td>${item.getUserAddress() }</td>
 					    	<td>${item.getUserSex() }</td>
 					    	<td>${item.getUserPhone() }</td>
-					    	<td><a href="edit?uid=${item.getUserId() }">修改</a>	<a>删除</a></td>
+					    	<td><a href="edit?uid=${item.getUserId() }">修改</a>	<a href="delete?uid=${item.getUserId() }">删除</a></td>
 					    </tr>
 					  </c:forEach>
 				</table>
+		  	</div>
+		  	<div class="panel-footer clearfix">
+		  		<a href="<%=path %>/add" class="pull-right">添加用户</a>
 		  	</div>
 		</div>
 	</div>

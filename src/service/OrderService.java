@@ -10,4 +10,6 @@ public interface OrderService {
 	public int add(Order order);
 	//ID≤È’“
 	public List<Order> findByName(String name);
+	//
+	public List<Order> getAll();
 }
